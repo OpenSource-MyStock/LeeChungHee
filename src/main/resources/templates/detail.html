@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <h1>This is Question Board</h1>
+
+    <h3 th:text = "${board.title}"></h3>
+
+    <p th:text = "${board.content}"></p>
+
+
+    <ul th:each="reply : ${replys}">
+        <li th:text = "${reply}"></li>
+    </ul>
+    <form action="/reply" method = "POST">
+        <input type="hidden" name = "rid", th:value = "${board.rid}">
+        <p>답변</p>
+        <textarea name="reply" id="" cols="30" rows="10"></textarea>
+        <button type="submit">send</button>
+    </form>
+
+
+
+
 </body>
 </html>
