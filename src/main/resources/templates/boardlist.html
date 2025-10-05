@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <th>제목</th>
+        <th>CreateAt</th>
+        <tr th:each="board : ${boards}">
+            <td><a th:href="@{|/detail/${board.rid}|}" th:text = "${board.title}"></a></td>
+            <td th:text = "${board.createAt}"></td>
+        </tr>
+    </table>
+
+    <button id = "write">Write</button>
+
+    <script>
+        document.getElementById("write").addEventListener('click', () => {
+            location.href = "/boardtext"
+        })
+    </script>
+</body>
+</html>
